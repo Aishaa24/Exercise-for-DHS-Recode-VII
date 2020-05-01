@@ -11,9 +11,11 @@
 	gen c_anc_any = (inrange(m14,1,20)) if m14<=20                                            
 	
 	*c_anc_ear: First antenatal care visit in first trimester of pregnancy of births in last 2 years
-	gen c_anc_ear = (inrange(m13,0,3)) if  m13<=10
+	gen c_anc_ear = .
+	
+	replace c_anc_ear = 0 if m2n != .    // m13 based on Women who had seen someone for antenatal care for their last born child
+	replace c_anc_ear = 1 if inrange(m13,0,3)
 	replace c_anc_ear = . if m13 == 98 
-	replace c_anc_ear = . if m13 == .
 
 	
 	*c_anc_ear_q: First antenatal care visit in first trimester of pregnancy among ANC users of births in last 2 years
@@ -91,7 +93,7 @@
 	    *now generating variable for date of last injection - will be 0 for women with at least 1 injection at last pregnancy
         g lastinj = 9999
 	    replace lastinj = 0 if (m1 >0 & m1 <8)
-        replace lastinj = (m1d  - b8) if m1d  <20 & (m1 ==0 | (m1 >7)                           // years ago of last shot - (age at of child), yields some negatives
+        replace lastinj = (m1d  - b8) if m1d  <20 & (m1 ==0 | (m1 >7))                         // years ago of last shot - (age at of child), yields some negatives
 
 	    *now generate summary variable for protection against neonatal tetanus 
 	    replace ttprotect = 1 if tet2lastp ==1 
