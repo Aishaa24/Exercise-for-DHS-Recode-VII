@@ -19,7 +19,7 @@ macro drop _all
 //NOTE FOR WINDOWS USERS : use "/" instead of "\" in your paths
 
 //global root "C:\Users\wb500886\WBG\Sven Neelsen - World Bank\MEASURE UHC DATA"
-global root "C:\Users\wb536558\OneDrive - WBG\Documents\DHS\MEASURE UHC DATA"
+global root "C:\Users\wb\OneDrive - WBG\Documents\DHS\MEASURE UHC DATA"
 
 
 * Define path for data sources
