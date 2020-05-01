@@ -21,8 +21,15 @@ gen country = regexs(1) if regexm(country_year, "([a-zA-Z]+)")
 	
 	*c_earlybreast: child breastfed within 1 hours of birth of births in last 2 years
 
-	gen c_earlybreast = (inlist(m34,0,100)) if m4!=94
-	replace c_earlybreast =. if m34==.
+//	gen c_earlybreast = (inlist(m34,0,100)) if m4!=94
+//      m4 is a filter question, for m4 = 94, c_earlybreast should be 0.
+//	replace c_earlybreast =. if m34==.
+	
+	gen c_earlybreast = .
+	
+	replace c_earlybreast = 0 if m4 != .    //  based on Last born children who were ever breastfed
+	replace c_earlybreast = 1 if inlist(m34,0,100)
+	replace c_earlybreast = . if inlist(m34,199,299)
 	
     *c_skin2skin: child placed on mother's bare skin immediately after birth of births in last 2 years
 	gen c_skin2skin = (m77 == 1) if  inlist(m77,1,2,3)  
