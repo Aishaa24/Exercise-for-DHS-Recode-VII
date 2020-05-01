@@ -25,7 +25,7 @@
 	gen c_diarrhea_pro = 0 if c_diarrhea == 1
 		
 		if inlist(name,"Jordan2017") {
-			global h12 "h12a h12b h12c h12d h12e h12g h12h  h12i"
+			global h12 "h12a h12b h12c h12d h12e h12j h12l h12m h12n"
 		}
 			
 		foreach var in $h12  {
@@ -105,7 +105,7 @@
 		gen c_treatARI2= 0 if c_ari2 == 1
 		
 		if inlist(name,"Jordan2017") {
-			global h32 "h32a h32b h32c h32d h32e h32g h32h h32i"
+			global h32 "h32a h32b h32c h32d h32e h32j h32l h32m h32n"
 		}
 		
 		foreach var in $h32 {
